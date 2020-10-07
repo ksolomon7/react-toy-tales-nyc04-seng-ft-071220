@@ -40,8 +40,33 @@ class ToyForm extends Component {
 
     // console.log("what is the evt we kinda dont need it", evt )
     //console.log("show me this.props.newToy", this.props.newToy)
-    this.props.addNewToyToState(this.state)
-    console.log("new state", (this.state))
+    // this.props.addNewToyToState(this.state)
+    // console.log("new state", (this.state))
+
+
+    fetch("http://localhost:3000/toys", {
+      method: "POST",
+      headers: {
+          "Content-Type": "Application/json"
+      },
+      body: JSON.stringify({
+          name: this.state.name,
+          image: this.state.image
+      })
+    })
+      .then(res => res.json())
+      .then((newlyCreatedToy)=> {
+          this.props.addNewToyToState(newlyCreatedToy)
+      })
+
+
+
+
+
+
+
+
+
 
   }
 

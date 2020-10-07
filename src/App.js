@@ -21,12 +21,37 @@ class App extends React.Component{
   state = {
     display: false,
     //we are making a key of toys and setting it equal to data
-    toys: data
+    toys: []
+
   }
 
-  addNewToyToState = (infoFromForm) => {
-    //something
+  componentDidMount(){
+
+    // Similar to DOMContentLoaded
+    // Great place to make requests when the page loads
+      // <App/> gets mounted only once
+    fetch("http://localhost:3000/toys")
+      .then(res => res.json())
+      .then((arrayOfToys) => {
+        this.setState({
+          toys: arrayOfToys 
+        })
+      })
+
+
   }
+
+
+  addNewToyToState = (newlyCreatedToy) => {
+    let copyOfToys = [...this.state.toys, newlyCreatedToy]
+    //this is being passed in the fetch in our Form
+    this.setState({
+      toys: copyOfToys
+    })
+  }
+
+
+
 
   handleClick = () => {
     let newBoolean = !this.state.display
