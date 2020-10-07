@@ -7,7 +7,7 @@ import ToyCard from './ToyCard'
 //now we are going to ToyCard
 //in the map iteration we set keys for a single Toy to match the attribute in the data. 
 const ToyContainer = (props) => {
-  // console.log("this is props", props )
+  console.log("this is props", props )
   // console.log("this is anything", props.anything )
   return(
     <div id="toy-collection">

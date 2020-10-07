@@ -67,6 +67,11 @@
       "name": "flatiron",
       "image": "https://images.ctfassets.net/hkpf2qd2vxgx/5I5Y0ObV2M4uOkSzaGGbky/5fe42588d027728eebbf391632802b52/campus-4.jpg_w_1952",
       "id": 12
+    },
+    {
+      "name": "me",
+      "image": "google.com",
+      "id": 13
     }
   ]
 }

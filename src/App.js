@@ -5,7 +5,9 @@ import Header from './components/Header'
 import ToyForm from './components/ToyForm'
 import ToyContainer from './components/ToyContainer'
 
-import data from './data'
+// import data from './data'
+
+
 
 
 //we now have information up
@@ -44,6 +46,7 @@ class App extends React.Component{
 
   addNewToyToState = (newlyCreatedToy) => {
     let copyOfToys = [...this.state.toys, newlyCreatedToy]
+    console.log("this is our copy", copyOfToys)
     //this is being passed in the fetch in our Form
     this.setState({
       toys: copyOfToys

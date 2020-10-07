@@ -56,6 +56,7 @@ class ToyForm extends Component {
     })
       .then(res => res.json())
       .then((newlyCreatedToy)=> {
+        //  debugger
           this.props.addNewToyToState(newlyCreatedToy)
       })
 
