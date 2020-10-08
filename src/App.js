@@ -53,7 +53,30 @@ class App extends React.Component{
     })
   }
 
+  deleteToyFromState = (deletedID) => {
+    let copyOfToys = this.state.toys.filter(toyObj => {
+      return toyObj.id !== deletedID
+    })
+    this.setState({
+      toys: copyOfToys
+    })
 
+  }
+
+  updateToyFromState = (updatedObj) => {
+    let copyOfToys = this.state.toys.map((toy) => {
+      if(toy.id === updatedObj.id){
+        return updatedObj
+      } else {
+        return toy
+      }
+    })
+
+    this.setState({
+      toys: copyOfToys
+    })
+
+  }
 
 
   handleClick = () => {
@@ -95,14 +118,14 @@ class App extends React.Component{
         <Header/>
         { this.state.display
             ?
-          <ToyForm addNewToyToState={this.addNewToyToState}/>
+          <ToyForm addNewToyToState={this.addNewToyToState} />
             :
           null
         }
         <div className="buttonContainer">
           <button onClick={this.handleClick}> Add a Toy </button>
         </div>
-        <ToyContainer anything={this.state.toys}/>
+        <ToyContainer anything={this.state.toys} deleteToyFromState={this.deleteToyFromState}/>
       </>
     );
   }

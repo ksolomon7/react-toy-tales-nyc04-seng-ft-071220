@@ -7,6 +7,22 @@ class ToyCard extends Component {
 //then you call the key that we set
 //it is in curly braces bc its Js that needs to be interpolated
 
+
+handleDelete = (evt) => {
+console.log(this.props)
+
+
+  fetch(`http://localhost:3000/toys/${this.props.id}`, {
+      method: "DELETE"
+  })
+      .then(res => res.json())
+      .then((deletedObj) => {
+        console.log("we are in this handler", deletedObj)
+          console.log("what are you?", this.props.deleteToyFromState(deletedObj.id))
+      })
+
+}
+
   render() {
     // console.log("show me this.props:", this.props)
     return (
@@ -15,7 +31,7 @@ class ToyCard extends Component {
         <img src={this.props.photo} alt={this.props.name} className="toy-avatar" />
         <p>{this.props.like} Likes </p>
         <button className="like-btn">Like {'<3'}</button>
-        <button className="del-btn">Donate to GoodWill</button>
+        <button onClick={this.handleDelete} className="del-btn">Donate to GoodWill</button>
       </div>
     );
   }

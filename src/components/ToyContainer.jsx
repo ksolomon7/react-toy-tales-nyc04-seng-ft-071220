@@ -13,11 +13,12 @@ const ToyContainer = (props) => {
     <div id="toy-collection">
       {
       //now we need to iterate through that information
-     
+      // <ToyCard deleteToyFromState={props.deleteToyFromState} />
       props.anything.map((singleToyObj) => {
-      return < ToyCard name={singleToyObj.name} photo={singleToyObj.image} like={singleToyObj.likes} />
+      return < ToyCard id={singleToyObj.id} name={singleToyObj.name} photo={singleToyObj.image} like={singleToyObj.likes} />
       })
       
+    
       }
     </div>
   );

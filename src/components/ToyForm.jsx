@@ -59,16 +59,6 @@ class ToyForm extends Component {
         //  debugger
           this.props.addNewToyToState(newlyCreatedToy)
       })
-
-
-
-
-
-
-
-
-
-
   }
 
 
